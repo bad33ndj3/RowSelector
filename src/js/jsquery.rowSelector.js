@@ -7,7 +7,9 @@
             li: {
                 class: ""
             },
-            selected: null
+            selected: null,
+            defaultInput: "<input type='hidden' class='" + pluginName.toLowerCase() + "-hidden'>",
+            input: $("." + pluginName.toLowerCase() + "-hidden")
         };
 
     // The actual plugin constructor
@@ -53,12 +55,8 @@
 
         setItemAsSelected: function (element) {
             var id = $(element).data(this._name + '-id');
-            // console.log(id);
-            // this.selected = this.getSelectedFromDataList(id);
             this.selected = id;
-            console.log('Selected: ' + this.selected.id);
-            console.log(this.selected);
-            this.hiddenInput.val(id);
+            this.options.input.val(id);
         },
 
         clickItemHandler: function (event) {
@@ -74,6 +72,11 @@
                 console.log('why you null');
                 this.setItemAsSelected()
             }
+
+            if(typeof this.options.input === 'undefined' ){
+                $(this.element).parent().append(this.options.defaultInput);
+            }
+
             $(document.body).on('click', '.' + this._name + '-item', $.proxy(function (event) {
                 this.clickItemHandler(event)
             }, this));
