@@ -4,7 +4,10 @@
     var pluginName = "rowSelector",
         pluginSays = pluginName + "_plugin: ",
         defaults = {
-            test: "test"
+            li: {
+                class: ""
+            },
+            selected: null
         };
 
     // The actual plugin constructor
@@ -14,12 +17,13 @@
         }
 
         this.dataList = dataList;
+
         this.element = element;
 
         this.options = $.extend({}, defaults, options);
 
         this._defaults = defaults;
-        this._name = pluginName;
+        this._name = pluginName.toLowerCase();
 
         this.init();
     }
@@ -27,24 +31,54 @@
     Plugin.prototype = {
 
         getListItemHtml: function (value) {
-            return "<li class='" + this._name + "-item' data-" + this._name + "-id='" + value.id + "'>" + value.name + "</li>";
+            return "<li class='" + this._name + "-item" + this.options.li.class + "' data-" + this._name + "-id='" + value.id + "'>" + value.name + "</li>";
         },
 
         getListHtml: function () {
-            var _this = this;
 
             var $html = "<ul>";
-            $.each(this.dataList, function (index, value) {
-                $html += _this.getListItemHtml(value);
-            });
+            $.each(this.dataList, $.proxy(function (index, value) {
+                $html += this.getListItemHtml(value);
+            }, this));
             $html += "</ul>";
 
             return $html;
         },
 
+        getSelectedFromDataList: function (id) {
+            return $.grep(this.dataList, function (e) {
+                return e.id == id;
+            });
+        },
+
+        setItemAsSelected: function (element) {
+            var id = $(element).data(this._name + '-id');
+            // console.log(id);
+            // this.selected = this.getSelectedFromDataList(id);
+            this.selected = id;
+            console.log('Selected: ' + this.selected.id);
+            console.log(this.selected);
+            this.hiddenInput.val(id);
+        },
+
+        clickItemHandler: function (event) {
+            this.setItemAsSelected(event.target);
+            // setElementStyle(event.target, '#car .');
+        },
+
         init: function () {
             $(this.element).empty();
             $(this.element).html(this.getListHtml());
+
+            if (this.selected == !null) {
+                console.log('why you null');
+                this.setItemAsSelected()
+            }
+            $(document.body).on('click', '.' + this._name + '-item', $.proxy(function (event) {
+                this.clickItemHandler(event)
+            }, this));
+
+            // $('#post_car').on('click', carHideModalHandler);
         }
     };
 
