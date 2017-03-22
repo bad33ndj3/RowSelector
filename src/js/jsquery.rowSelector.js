@@ -31,11 +31,14 @@
         },
 
         getListHtml: function () {
+            var _this = this;
+
             var $html = "<ul>";
             $.each(this.dataList, function (index, value) {
-                $html += this.getListItemHtml(value);
+                $html += _this.getListItemHtml(value);
             });
             $html += "</ul>";
+
             return $html;
         },
 
@@ -45,7 +48,7 @@
         }
     };
 
-    // A really lightweight plugin wrapper around the constructor,
+    // A wrapper around the constructor,
     // preventing against multiple instantiations
     $.fn[pluginName] = function (dataList, options) {
         return this.each(function () {
