@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../src/css/jquery.rowSelector.css">
+</head>
+<body>
+<div class="row" style="margin-top: 100px">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+        <div class="item_choice" id="car"></div>
+        <input type="hidden" id="hidden_input">
+    </div>
+    <div class="col-xs-4"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../src/js/jsquery.rowSelector.js"></script>
+<script>
+    var data = {
+        0: {
+            id: 1,
+            name: 'samsung'
+        },
+        1: {
+            id: 2,
+            name: 'apple'
+        },
+        2: {
+            id: 3,
+            name: 'nokia'
+        }
+    };
+
+    $(document).ready(function () {
+        $input = $('#hidden_input');
+        var options = {};
+        $('#car').rowSelector(data, options);
+    });
+</script>
+</body>
+</html>
+<!--<div class="modal fade" id="tabletModal" tabindex="-1" role="dialog" aria-labelledby="carModalLabel">-->
+<!--<div class="modal-dialog" role="document">-->
+<!--<div class="modal-content">-->
+<!--<div class="modal-header">-->
+<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--<h4 class="modal-title" id="carModalLabel">Modal title</h4>-->
+<!--</div>-->
+<!--<div class="modal-body">-->
+<!--...-->
+<!--</div>-->
+<!--<div class="modal-footer">-->
+<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
