@@ -8,6 +8,8 @@
                 class: ""
             },
             selected: null,
+            selectedId: "selected-item",
+            globalClass: "item_choice",
             defaultInput: "<input type='hidden' class='" + pluginName.toLowerCase() + "-hidden'>",
             input: $("." + pluginName.toLowerCase() + "-hidden")
         };
@@ -32,6 +34,10 @@
 
     Plugin.prototype = {
 
+        strtoclass: function (string) {
+            return "." + string;
+        },
+
         getListItemHtml: function (value) {
             return "<li class='" + this._name + "-item" + this.options.li.class + "' data-" + this._name + "-id='" + value.id + "'>" + value.name + "</li>";
         },
@@ -47,24 +53,24 @@
             return $html;
         },
 
-        getSelectedFromDataList: function (id) {
-            return $.grep(this.dataList, function (e) {
-                return e.id == id;
-            });
+        setItemAsSelected: function (element) {
+            this.selected = $(element).data(this._name + '-id');
+            this.options.input.val(this.selected);
+            console.log('Selected id: ' + this.selected)
         },
 
-        setItemAsSelected: function (element) {
-            var id = $(element).data(this._name + '-id');
-            this.selected = id;
-            this.options.input.val(id);
+        setElementStyle: function (target) {
+            $(this.element).find(this.strtoclass(this.options.selectedId)).removeClass(this.options.selectedId);
+            $(target).addClass(this.options.selectedId);
         },
 
         clickItemHandler: function (event) {
             this.setItemAsSelected(event.target);
-            // setElementStyle(event.target, '#car .');
+            this.setElementStyle(event.target);
         },
 
         init: function () {
+            $(this.element).addClass(this.options.globalClass);
             $(this.element).empty();
             $(this.element).html(this.getListHtml());
 
@@ -77,7 +83,7 @@
                 $(this.element).parent().append(this.options.defaultInput);
             }
 
-            $(document.body).on('click', '.' + this._name + '-item', $.proxy(function (event) {
+            $(document.body).on('click', this.strtoclass(this._name + '-item'), $.proxy(function (event) {
                 this.clickItemHandler(event)
             }, this));
 
