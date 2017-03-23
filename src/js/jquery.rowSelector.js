@@ -119,6 +119,12 @@
             this.setElementStyle(event.target);
         },
 
+        updateListData: function (dataList) {
+            this.dataList = dataList;
+            $(this.element).empty();
+            $(this.element).html(this.getListHtml());
+        },
+
         /**
          * Init Plugin
          */
@@ -127,7 +133,7 @@
             $(this.element).empty();
             $(this.element).html(this.getListHtml());
 
-            if (this.selected == !null) {
+            if (this.selected ==! null) {
                 console.log('why you null');
                 this.setItemAsSelected()
             }
@@ -136,7 +142,9 @@
                 this.clickItemHandler(event)
             }, this));
 
-            // $('#post_car').on('click', carHideModalHandler);
+            $(this.element).on('rowInput:update', $.proxy(function (event) {
+                this.updateListData(event.dataList);
+            }, this));
         }
     };
 

@@ -13,14 +13,23 @@
 </head>
 <body>
 <div class="row">
-    <div class="col-xs-6">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-4">
         <div id="car"></div>
         <input type="hidden" id="car_hidden">
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-4">
         <div id="tablet"></div>
         <input type="hidden" id="tablet_hidden">
     </div>
+    <div class="col-xs-2"></div>
+</div>
+<div class="row">
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4">
+        <button id="preview">Add newData to the list</button>
+    </div>
+    <div class="col-xs-4"></div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -45,10 +54,40 @@
             name: 'nokia'
         }
     };
+    var newData = {
+        0: {
+            id: 1,
+            name: 'samsung'
+        },
+        1: {
+            id: 2,
+            name: 'apple'
+        },
+        2: {
+            id: 3,
+            name: 'nokia'
+        },
+        3: {
+            id: 4,
+            name: 'LG'
+        },
+        4: {
+            id: 5,
+            name: 'Oneplus One'
+        }
+    };
 
     $(document).ready(function () {
-        $('#car').rowSelector(data, $('#car_hidden'));
-        $('#tablet').rowSelector(data, $('#tablet_hidden'));
+        var rowCar = $('#car').rowSelector(data, $('#car_hidden'));
+        var rowTablet = $('#tablet').rowSelector(data, $('#tablet_hidden'));
+
+        //preview updating the list
+        $('#preview').click(function () {
+            $('#car').trigger({
+                type: 'rowInput:update',
+                dataList: newData
+            });
+        });
     });
 </script>
 </body>
