@@ -16,7 +16,7 @@
  *      globalClass: //string -> global class name,
  *      defaultInput: //string -> hidden input
  * }
- * 
+ *
  */
 ;(function ($, window, document, undefined) {
 

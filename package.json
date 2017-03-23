@@ -1,0 +1,28 @@
+{
+  "name": "rowselector",
+  "version": "1.0.0",
+  "description": "jQuery plugin for selecting and adding rows in a form. Edit",
+  "main": "src/js/jquery.rowSelector.js",
+  "scripts": {
+    "test": "$(body).rowSelector()"
+  },
+  "dependencies": {
+    "jquery": "3.2.1",
+    "bootstrap": "3.3.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bad33ndj3/RowSelector.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "jquery"
+  ],
+  "author": "bad33ndj3 (Casper Spruit)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bad33ndj3/RowSelector/issues"
+  },
+  "homepage": "https://github.com/bad33ndj3/RowSelector#readme"
+}
