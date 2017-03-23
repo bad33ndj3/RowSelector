@@ -5,6 +5,18 @@
  *
  * Usage:
  * $('#element').rowSelector(data, $('hidden_input'));
+ *
+ * Options:
+ * {
+ *      li: {
+ *          class: //string -> adds a class to all your li's
+ *      },
+ *      selected: //int -> pre select a number on id,
+ *      selectedId: //string -> class name for selected li,
+ *      globalClass: //string -> global class name,
+ *      defaultInput: //string -> hidden input
+ * }
+ * 
  */
 ;(function ($, window, document, undefined) {
 
@@ -22,8 +34,6 @@
             selected: null,
             selectedId: "selected-item",
             globalClass: "item_choice",
-            defaultInput: "<input type='hidden' class='" + pluginName.toLowerCase() + "-hidden'>",
-            input: $("." + pluginName.toLowerCase() + "-hidden")
         };
 
     /**
