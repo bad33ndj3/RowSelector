@@ -132,13 +132,12 @@
          * set pre selected value
          */
         setPreselected: function () {
-            // console.log(this.options.selected);
-            if (this.options.selected == !null) {
+            if (this.options.selected !== null) {
                 var target = $(this.element).find("li[data-" + this._name + "-id='" + this.options.selected + "']");
+
                 if (target === null) {
                     console.info(pluginSays + "could not find the preselected element");
                 } else {
-                    console.log(target);
                     this.setElementStyle(target);
                     this.setItemAsSelected(target)
                 }
@@ -152,7 +151,6 @@
             $(this.element).addClass(this.options.globalClass);
             $(this.element).empty();
             $(this.element).html(this.getListHtml());
-
 
             $(this.element).on('click', this.strtoclass(this._name + '-item'), $.proxy(function (event) {
                 this.clickItemHandler(event)
