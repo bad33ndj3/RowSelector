@@ -26,6 +26,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../src/js/jquery.rowSelector.js"></script>
 <script>
+    /**
+     * demo data
+     *
+     * @type json
+     */
     var data = {
         0: {
             id: 1,
@@ -42,8 +47,8 @@
     };
 
     $(document).ready(function () {
-        $('#car').rowSelector(data, $('#hidden_car'));
-        $('#tablet').rowSelector(data, $('#hidden_tablet'))
+        $('#car').rowSelector(data, $('#car_hidden'));
+        $('#tablet').rowSelector(data, $('#tablet_hidden'));
     });
 </script>
 </body>

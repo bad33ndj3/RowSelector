@@ -1,7 +1,15 @@
+/**
+ * rowSelector
+ *
+ * Created by Casper Spruit
+ *
+ * Usage:
+ * $('#element').rowSelector(data, $('hidden_input'));
+ */
 ;(function ($, window, document, undefined) {
 
     /**
-     * default
+     * set default
      *
      * @type {string}
      */
@@ -89,8 +97,6 @@
          */
         setItemAsSelected: function (element) {
             this.selected = $(element).data(this._name + '-id');
-            console.log(this.selected);
-            console.log(this.$hidden);
             $(this.$hidden).val(this.selected);
             console.log('Selected id: ' + this.selected)
         },
