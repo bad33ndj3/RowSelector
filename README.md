@@ -29,8 +29,11 @@ make an instance
  $('#car').rowSelector(cars, $('#car_hidden'));
 ```
 and it works!
+
 ![screenshot](https://github.com/bad33ndj3/RowSelector/blob/master/preview.png?raw=true)
+
 ---
+
 more to come...
 
 ***Not documented***
