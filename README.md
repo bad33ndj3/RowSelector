@@ -39,5 +39,6 @@ more to come...
 ***Not documented***
 * Preselect an item
 * Reload the list
+
 ***Future plans***
 * ...
