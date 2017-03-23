@@ -40,7 +40,21 @@
      *
      * @type json
      */
-    var data = {
+    var cars = {
+        0: {
+            id: 1,
+            name: 'BMW'
+        },
+        1: {
+            id: 2,
+            name: 'Audi'
+        },
+        2: {
+            id: 3,
+            name: 'Porsche'
+        }
+    };
+    var tablets = {
         0: {
             id: 1,
             name: 'samsung'
@@ -54,7 +68,7 @@
             name: 'nokia'
         }
     };
-    var newData = {
+    var newTablets = {
         0: {
             id: 1,
             name: 'samsung'
@@ -78,14 +92,14 @@
     };
 
     $(document).ready(function () {
-        var rowCar = $('#car').rowSelector(data, $('#car_hidden'));
-        var rowTablet = $('#tablet').rowSelector(data, $('#tablet_hidden'));
+        $('#car').rowSelector(cars, $('#car_hidden'));
+        $('#tablet').rowSelector(tablets, $('#tablet_hidden'));
 
         //preview updating the list
         $('#preview').click(function () {
-            $('#car').trigger({
+            $('#tablet').trigger({
                 type: 'rowInput:update',
-                dataList: newData
+                dataList: newTablets
             });
         });
     });
