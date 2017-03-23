@@ -1,6 +1,8 @@
 # RowSelector
 this is a jQuery plugin for selecting rows in a form and adding the value to an hidden input.
-
+### Requires
+* jQuery 3.2.1 (tested)
+* Bootstrap 3.3.7 (tested)
 ### Usage
 get some data
 ```js
