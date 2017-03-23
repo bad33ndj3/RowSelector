@@ -3,8 +3,8 @@
  *
  * Created by Casper Spruit
  *
- * Usage:
- * $('#element').rowSelector(data, $('hidden_input'));
+ * Quick usage:
+ *  $('#element').rowSelector(data, $('hidden_input'));
  */
 ;(function ($, window, document, undefined) {
 
