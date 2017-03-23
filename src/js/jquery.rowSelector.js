@@ -98,7 +98,6 @@
         setItemAsSelected: function (element) {
             this.selected = $(element).data(this._name + '-id');
             $(this.$hidden).val(this.selected);
-            console.log('Selected id: ' + this.selected)
         },
 
         /**
@@ -119,10 +118,31 @@
             this.setElementStyle(event.target);
         },
 
+        /**
+         *
+         * @param dataList
+         */
         updateListData: function (dataList) {
             this.dataList = dataList;
             $(this.element).empty();
             $(this.element).html(this.getListHtml());
+        },
+
+        /**
+         * set pre selected value
+         */
+        setPreselected: function () {
+            // console.log(this.options.selected);
+            if (this.options.selected == !null) {
+                var target = $(this.element).find("li[data-" + this._name + "-id='" + this.options.selected + "']");
+                if (target === null) {
+                    console.info(pluginSays + "could not find the preselected element");
+                } else {
+                    console.log(target);
+                    this.setElementStyle(target);
+                    this.setItemAsSelected(target)
+                }
+            }
         },
 
         /**
@@ -133,10 +153,6 @@
             $(this.element).empty();
             $(this.element).html(this.getListHtml());
 
-            if (this.selected ==! null) {
-                console.log('why you null');
-                this.setItemAsSelected()
-            }
 
             $(this.element).on('click', this.strtoclass(this._name + '-item'), $.proxy(function (event) {
                 this.clickItemHandler(event)
@@ -145,6 +161,8 @@
             $(this.element).on('rowInput:update', $.proxy(function (event) {
                 this.updateListData(event.dataList);
             }, this));
+
+            this.setPreselected();
         }
     };
 

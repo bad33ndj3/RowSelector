@@ -90,9 +90,12 @@
             name: 'Oneplus One'
         }
     };
+    var options = {
+        selected: 2
+    };
 
     $(document).ready(function () {
-        $('#car').rowSelector(cars, $('#car_hidden'));
+        $('#car').rowSelector(cars, $('#car_hidden'), options);
         $('#tablet').rowSelector(tablets, $('#tablet_hidden'));
 
         //preview updating the list
