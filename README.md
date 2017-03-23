@@ -30,5 +30,11 @@ make an instance
 ```
 and it works!
 ![screenshot](https://github.com/bad33ndj3/RowSelector/blob/master/preview.png?raw=true)
-
 ---
+more to come...
+
+***Not documented***
+* Preselect an item
+* Reload the list
+***Future plans***
+* ...
