@@ -1,12 +1,10 @@
 .item_choice {
     width: 100%;
     border: 1px solid #cccccc;
-    /*border-spacing: 5px;*/
     height: 200px;
     background-color: #ffffff;
     overflow-y: auto;
     overflow-x: hidden;
-    /*padding: 2px 7px;*/
     border-radius: 5px 5px 0 0;
 }
 
