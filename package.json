@@ -6,10 +6,6 @@
   "scripts": {
     "test": "$(body).rowSelector()"
   },
-  "dependencies": {
-    "jquery": "3.2.1",
-    "bootstrap": "3.3.7"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bad33ndj3/RowSelector.git"
